@@ -6,11 +6,12 @@
 </p>
 
 <p>
-<%= image_tag @picture.url %>
+<img src="<%= @album.image %>">
+<%= image_tag @album.image %>
 </p>
 
 <p>
-  <strong>Youtube URL:</strong>
+  <strong>Listen on Youtube:</strong>
   <%= @album.url %>
 </p>
 

@@ -1,2 +1,18 @@
-<h1>Sign Up!</h1>
-<p>Long live the album! Vinyl Party is reviving the album as an artform by letting you collect and link your favorite albums </p>
+<h1>Sign up</h1>
+<%= form_for @user do |f| %>
+<p>
+<%= f.label :username %>
+<%= f.text_field :username %>
+</p>
+<p>
+<%= f.label :password %>
+<%= f.password_field :password %>
+</p>
+<p>
+<%= f.label :password_confirmation %>
+<%= f.password_field :password_confirmation %>
+</p>
+<p>
+<%= f.submit %>
+</p>
+<% end %>

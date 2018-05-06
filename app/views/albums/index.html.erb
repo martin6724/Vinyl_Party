@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Albums</h1>
+<h1>My Collection</h1>
 
 <table>
   <thead>
@@ -16,7 +16,7 @@
     <% @albums.each do |album| %>
       <tr>
         <td><%= album.title %></td>
-        <td><%= image_tag @album.image %></td>
+        <td><%= image_tag album.image.url %></td>
         <td><%= album.url %></td>
         <td><%= link_to 'Show', album %></td>
         <td><%= link_to 'Edit', edit_album_path(album) %></td>

@@ -1,4 +1,4 @@
-<%= form_with(model: album, local: true) do |form| %>
+<%= form_with(model: album, url: '/users/albums', local: true) do |form| %>
   <% if album.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(album.errors.count, "error") %> prohibited this album from being saved:</h2>
@@ -22,9 +22,16 @@
   </div>
 
   <div class="field">
-    <%= form.label :url %>
+    <%= form.label :'Link to full album' %>
     <%= form.text_field :url %>
   </div>
+
+  <div class="field">
+    <%= form.label :artist %>
+    <%= form.text_field :artist %>
+  </div>
+
+  <%= form.hidden_field :user, id: album.user.id %>
 
   <div class="actions">
     <%= form.submit %>

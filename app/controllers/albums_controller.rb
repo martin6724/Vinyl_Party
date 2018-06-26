@@ -20,6 +20,16 @@ class AlbumsController < ApplicationController
 
   # GET /albums/1/edit
   def edit
+    # @album = current_user.albums.find(params[:id])
+    respond_to do |format|
+      if @album.update
+        format.html { render :show, notice: 'Album was successfully updated.' }
+        format.json { render :show, status: :ok, location: @album }
+      else
+        format.html { render :edit }
+        format.json { render json: @album.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # POST /albums
@@ -40,16 +50,7 @@ class AlbumsController < ApplicationController
 
   # PATCH/PUT /albums/1
   # PATCH/PUT /albums/1.json
-  def update
-    respond_to do |format|
-      if @album.update(album_params)
-        format.html { redirect_to @album, notice: 'Album was successfully updated.' }
-        format.json { render :show, status: :ok, location: @album }
-      else
-        format.html { render :edit }
-        format.json { render json: @album.errors, status: :unprocessable_entity }
-      end
-    end
+  def edit
   end
 
   # DELETE /albums/1

@@ -16,10 +16,10 @@
     <% @albums.each do |album| %>
       <tr>
         <td><%= album.title %></td>
-        <td><%= image_tag  %></td>
+        <td><%= album.image  %></td>
         <td><%= album.url %></td>
         <td><%= link_to 'Show', users_album_path(album) %></td>
-        <td><%#= link_to 'Edit', edit_users_album_path(album) %></td>
+        <td><%#= link_to 'Edit', edit_method-url, remote: true %></td>
         <td><%#= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
